@@ -1,0 +1,128 @@
+/* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: Interstate_Light;
+    src: url(assets/fonts/citi/Interstate-Light.woff);
+}
+    body,div,ul,li,table,h1,h2,h3,h4,h5,h,p{margin:0;padding:0;font-family: Arial}
+    li{list-style: none}
+  .citi-blue-bar {
+    height:60px;
+    background: url(assets/img/brand/citi-blue-bar.jpg) bottom left repeat-x;
+}
+.greybg{background:#333;color:#fff;min-height:26px;padding:2px 4px;line-height: 16px}
+.toplinks {float: right;font-size:14px;margin-right:40px;padding-top:0}
+.toplinks a{color:#fff}
+.title{font-size:26px;color:#fff;font-weight: normal;float: left;padding-top: 10px;font-family: Interstate_Light;}
+.citi-logo{float: right}
+.container-header{padding:8px 30px}
+
+a, .logindetails .link {
+    color: #028ae2;
+    text-decoration: none;
+}
+a:hover, .logindetails .link:hover{color:#002d72 !important;border:none;}
+
+.main-citi-nav {   
+
+    background: #fff;
+    border-bottom: solid thin #ccc;
+   height:40px;
+   padding-left:20px;
+   padding-right: 20px;
+   box-shadow: #555 0px 2px 5px;
+   font-family: Interstate_Light;
+
+}
+
+.main-citi-nav ul{ margin-top:8px !important;height:31px;}
+.main-citi-nav ul li{float:left;font-family: Interstate_Light;}
+
+.main-citi-nav ul li a{
+    font-family: Interstate_Light, sans-serif;
+    color: #53565a;
+    font-weight: 400;
+    padding: 0 25px 10px 10px;
+    font-size: 18px
+ }
+
+.main-citi-nav ul li:hover a {
+    color: #008ce6!important;
+    text-decoration: none;
+    border-bottom: solid #008ce6 5px;
+}
+
+.main-citi-nav ul li a:hover {
+    color: #008ce6 !important;
+}
+.main-citi-nav ul li.active:hover a {
+    color: #fff !important;
+}
+
+body{color:#3e3947;height:100%;background: #efeff0}
+.maincontainer {
+    top:110px;
+    bottom:45px;
+    left:0;
+    right:0;
+    overflow: auto;
+    overflow-y: hidden;
+    position: absolute;
+    padding:0 10px;
+}
+.footer{position: absolute;bottom:0;background: #333;color:#fff;left:0;right:0;padding:4px;}
+.logindetails{font-family: Interstate_Light;}
+
+.panel{border-radius:4px;border:1px solid #97999b;border:1px solid #ddd;background: #fff;position: absolute;bottom: 0;left:10px;right:10px;top:0px;}
+.panelHeader{background:#008ce6;color:#fff;font-weight: bold;font-size: 14px;padding:6px;border-radius:4px 4px 0  0;}
+.panelBody{
+    height: 90%;
+}
+.panelToolbar{
+    background:#eee;
+    padding:6px;
+    border-bottom:1px solid #ddd; 
+    height: 40px;}
+.dataTable{width:99%;margin:10px auto;border:1px solid #ddd; font-size: 12px;border-bottom: none}
+.dataTable thead th{color:#53565a;padding:6px; font-size: 12px;font-weight: bold;
+    ;border-bottom: 1px solid #ddd;border-left: 1px solid #fff;
+  background-image: -webkit-linear-gradient(top , #fff 3%, #f5f5f5 7% , #eee 100%);   
+
+text-align: center;
+}
+.dataTable tbody td{font-size: 12px;border-right:0;border-top:none;border-bottom: 1px solid #ddd;border-left: 1px solid #ddd;padding:6px;}
+.dataTable thead tr th:first-child, .dataTable tbody tr td:first-child{border-left:none;}
+.dataTable tbody tr:nth-child(even) {background: #f9f9f9}
+.dataTable tbody tr:nth-child(odd) {background: #FFF}
+
+.formFields div{float:left;padding:2px 6px;}
+.formFields div label{font-weight: bold;font-size: 12px;padding-right: 10px}
+.formFields div select{width:auto;}
+
+.button{
+    border-radius:3px;
+    background: #00bdf2;
+    color:#fff; 
+    border:1px solid #fff;padding:4px 10px;
+    font-weight: bold;
+background-image: -webkit-linear-gradient(top , #40d5ff, #1ccdff 30% , #00bdf2 65%,#00a5d3); 
+background-image: linear-gradient(top , #40d5ff, #1ccdff 30% , #00bdf2 65%,#00a5d3);
+
+}
+.button:hover{background:#008ce6}
+
+.textfield{border-radius:4px;font-size: 12px;border:1px solid #ccc;padding:4px;}
+.textfield:focus{outline:0;border:1px solid #008ce6;}
+.button:focus{outline:0;}
+select,option{padding:3px;border-radius:4px;}
+/* .pagination{float:right;} */
+/* .pagination {
+    margin: 0 35%;
+}
+.pagination li{
+    padding: 0 4px;
+    display: inline-block;
+    
+} */
+.alignbottom{bottom:0;position:absolute;left:0;right:0}
+.displaymessage{font-size: 12px}
+.displaymessage span{font-weight: bold;}

@@ -1,0 +1,54 @@
+<form>
+  <div class='panel'>
+    <div class='panelHeader'>
+      {{ title }}
+    </div>
+    <div class='panelBody'>
+      <div class='panelToolbar'>
+        <div class='formFields'>
+          <div class="dropdown-search">
+            <label>Topic:</label>
+            <input class="topic" [(ngModel)]="selectedTopic" name="topic" placeholder="Select Topic" (click)="toggleDropdown()">
+            <ul class="topic-list" *ngIf="showDropdown">
+              <li *ngFor="let topic of topics | search:'topic':selectedTopic" (click)="onChangeTopic(topic)">
+                {{ topic }}
+              </li>
+            </ul>
+          </div>
+          <div>
+            <label>Message:</label>
+            <input [(ngModel)]="message" name="msg" placeholder="Search By Message">
+          </div>
+          <div>
+            <label>UTER:</label>
+            <input [(ngModel)]="uter" name="uter" placeholder="Search By UTER">
+          </div>
+          <div>
+            <label>Date:</label>
+            <select style='min-width:50px;' (change)="onChangeDate($event)">
+              <option *ngFor="let date of dates" [value]="date">{{ datesObj[date] }}
+              </option>
+            </select>
+          </div>
+          <div>
+            <label>Per Page:</label>
+            <select style='min-width:50px;' (change)="onChangePerPage($event)">
+              <option *ngFor="let count of perpage" [value]="count">{{ count }}
+              </option>
+            </select>
+          </div>
+          <input type='button' value='Receive' class='button' (click)="receive()" />
+        </div>
+      </div>
+
+      <div>
+        <table-component *ngIf="receivedMessages" (clickPage)="goToPage($event)" [tableContent]="kafkaContent"
+          [topicName]="selectedTopic" [pageSize]="pageSize" [browserTitle]="title"></table-component>
+      </div>
+      <app-loader-component *ngIf="showLoader"></app-loader-component>
+
+    </div>
+    <div class='panelFooter'>
+    </div>
+  </div>
+</form>

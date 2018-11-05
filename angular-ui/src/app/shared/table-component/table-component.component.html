@@ -1,0 +1,103 @@
+<div class="table-container" *ngIf="contentMessage.length > 0; else noMessages;">
+  <div class="btn-container">
+    <input type='button' value='Replay' class='button' [disabled]="!isSelected" (click)="replayMessages()" *ngIf="browserTitle === screenName.error" />
+    <input type='button' value='Approve' class='button' [disabled]="!isSelected" (click)="confirmAction('Approve')"
+      *ngIf="browserTitle === screenName.approve" />
+    <input type='button' value='Reject' class='button' [disabled]="!isSelected" (click)="confirmAction('Review')" *ngIf="browserTitle === screenName.approve" />
+  </div>
+
+  <table class='dataTable' border='0' cellpadding='0' cellspacing='0'>
+    <thead>
+      <tr>
+        <th *ngIf="showCheckBox()"><input type="checkbox" name="selectAll" id="all" [(ngModel)]="selectedAll" (change)="selectAll()"></th>
+        <th>Offset</th>
+        <th *ngIf="browserTitle === screenName.payment">Topic Name</th>
+        <th>UTER</th>
+        <th *ngIf="browserTitle === screenName.payment">Timestamp</th>
+        <th>Message</th>
+        <th *ngIf="isReview()">Status</th>
+        <th *ngIf="isReview()">Submitted By</th>
+        <th *ngIf="isReview()">Submitted Date</th>
+        <th *ngIf="browserTitle === screenName.history">Reviewed By</th>
+        <th *ngIf="browserTitle === screenName.history">Reviewed Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let message of contentMessage">
+        <td *ngIf="showCheckBox()">
+          <input type="checkbox" [(ngModel)]="message.selected" [disabled] = "(!isReview() && message.isProcessed)" (change)="select()">
+        </td>
+        <td>{{ message.offsetId || message.offset || "0"}}</td>
+        <td *ngIf="browserTitle === screenName.payment">{{ message.topicName }}</td>
+        <td>{{ message.uter }}</td>
+        <td *ngIf="browserTitle === screenName.payment">{{ message.msgTimestamp | date:'medium' }}</td>
+        <td *ngIf="browserTitle === screenName.payment" class="msg" (click)="openPaymentMessage(message.offsetId, message.topicName)">
+          {{message.msgData}}
+        </td>
+        <td *ngIf="browserTitle !== screenName.payment" class="msg" (click)="openErrorMessage(message.id, message.offsetId || message.offset)">
+          {{message.message || message.errorMsgData || msgData }}
+        </td>
+        <td *ngIf="browserTitle === screenName.approve">
+          {{ message.status === 'P' ? 'Pending' : '' }}
+        </td>
+        <td *ngIf="browserTitle === screenName.history">
+          {{ message.status === 'A' ? 'Approved' : 'Rejected' }}
+        </td>
+        <td *ngIf="isReview()">{{ message.requestedBy }}</td>
+        <td *ngIf="isReview()">{{ message.requestedDate }}</td>
+        <td *ngIf="browserTitle === screenName.history">{{ message.approvedBy }}</td>
+        <td *ngIf="browserTitle === screenName.history">{{ message.approvedDate }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<modal-component *ngIf="showModal" [message]="message" [messageId]="msgId" (closeModal)="closeModal($event)"></modal-component>
+
+<app-confirmation-box *ngIf="confirm" [approveType]="approveType" [count]="selectedMessages.length" (confirm)="reviewMessages($event)"
+  (cancel)="closeConfirm()"></app-confirmation-box>
+
+<app-alert-box *ngIf="showAlert" [msg]="alertMsg" (close)="closeAlert()"></app-alert-box>
+
+<app-loader-component *ngIf="showSpinner"></app-loader-component>
+
+<ng-template #noMessages>
+  <h3 class="noMsg">
+    No Messages to display
+  </h3>
+</ng-template>
+
+<div class='panelToolbar alignbottom'>
+  <div style='float:left' class='displaymessage'>
+    {{ paginationMessage }}
+  </div>
+  <div class='pagination'>
+    <ul *ngIf="pager.pages && pager.pages.length > 1">
+      <li>
+        <a title='First' [ngClass]="{'disable': isFirstPage}" (click)="pageClick(1)">
+          <i class="glyphicon glyphicon-backward"></i>
+        </a>
+      </li>
+      <li>
+        <a title='Previous' [ngClass]="{'disable': isFirstPage}" (click)="pageClick(pager.currentPage - 1)">
+          <i class="glyphicon glyphicon-chevron-left"></i>
+        </a>
+      </li>
+      <li *ngFor="let page of  pager.pages">
+        <a title='page' (click)="pageClick(page)" [ngClass]="{'selected': pageNo == page}">
+          {{ page }}
+        </a>
+      </li>
+      <li>
+        <a title='Next' [ngClass]="{'disable': isLastPage}" (click)="pageClick(pager.currentPage + 1)">
+          <i class="glyphicon glyphicon-chevron-right"></i>
+        </a>
+      </li>
+      <li>
+        <a title='Last' [ngClass]="{'disable': isLastPage}" (click)="pageClick(pager.totalPages)">
+          <i class="glyphicon glyphicon-forward"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>

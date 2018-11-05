@@ -1,0 +1,16 @@
+<div id="overlay">
+  <div id="modalTitle">
+    <span class="pull-left">Message : {{ messageId }}</span>
+    <span class="pull-right closeBtn">
+      <a (click)="close()"><i class="glyphicon glyphicon-remove"></i></a>
+    </span>
+  </div>
+  <div id="modal-container">
+    <p>
+      {{ message }}
+    </p>
+  </div>
+  <div class="modal-footer">
+      <input type='button' value='Close' class='button' (click)="close()" />
+  </div>
+</div>
