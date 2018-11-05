@@ -1,0 +1,12 @@
+<div id="overlay">
+    <div id="modal-container">
+      <h4 class="heading">Alert!</h4>
+      <p>
+        {{ message }}
+      </p>
+      <div class="btn-container">
+        <input type='button' value='Confirm' class='button' (click)="confirmAction($event)" />
+        <input type='button' value='Cancel' class='button' (click)="cancelAction()" />
+      </div>
+    </div>
+  </div>
