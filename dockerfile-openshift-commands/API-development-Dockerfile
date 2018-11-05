@@ -1,0 +1,6 @@
+FROM java:8
+ADD App1RestCallDocker-0.0.1-SNAPSHOT.jar App1RestCallDocker-0.0.1-SNAPSHOT.jar
+WORKDIR /
+EXPOSE 9090
+CMD java -jar App1RestCallDocker-0.0.1-SNAPSHOT.jar
+
