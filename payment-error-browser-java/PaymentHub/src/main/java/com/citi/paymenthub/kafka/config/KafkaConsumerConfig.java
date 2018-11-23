@@ -54,7 +54,7 @@ public class KafkaConsumerConfig {
 			e.printStackTrace();
 		}
 		props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, getPropertyValue(ConstantUtils.BOOTSTRAP_SERVERS_CONFING));
-		props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, LongDeserializer.class.getName());
+		props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());
 		props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());
 		props.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, ConstantUtils.LATEST);
 		props.put(ConsumerConfig.FETCH_MAX_BYTES_CONFIG, 2147483647);
@@ -67,8 +67,8 @@ public class KafkaConsumerConfig {
  * @return
  */
 	@Bean
-	public Consumer<Long, String> createConsumer() {
-		props.put(ConsumerConfig.GROUP_ID_CONFIG, getPropertyValue(ConstantUtils.GROUP_ID));
+	public Consumer<String, String> createConsumer() {
+		props.put(ConsumerConfig.GROUP_ID_CONFIG, getPropertyValue(ConstantUtils.GROUP_ID)+System.currentTimeMillis());
 		return new KafkaConsumer<>(props);
 	}
 

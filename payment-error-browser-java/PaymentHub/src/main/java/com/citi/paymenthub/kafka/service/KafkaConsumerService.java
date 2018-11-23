@@ -14,6 +14,7 @@ import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.EnableScheduling;
@@ -54,7 +55,7 @@ public class KafkaConsumerService {
 	@Autowired
 	private TopicMasterService topicMasterService;
 
-	private Consumer<Long, String> consumer;
+	private Consumer<String, String> consumer;
 
 	/**
 	 * This method will initialize the consumer
@@ -69,18 +70,21 @@ public class KafkaConsumerService {
 	/**
 	 * This method will run periodically every 30 seconds and will consume all the
 	 * messages
+	 * @throws JSONException 
 	 */
-	@Scheduled(fixedRate = 10)
-	public void receiveMessage() {
+	@Scheduled(fixedRate = 1000)
+	public void receiveMessage() throws JSONException {
 		int count = 0;
 		List<TopicMessagesMaster> list = new ArrayList<TopicMessagesMaster>();
-		ConsumerRecords<Long, String> records = consumer.poll(100);
-		for (ConsumerRecord<Long, String> record : records) {
+		ConsumerRecords<String, String> records = consumer.poll(100);
+		logger.info("received records " + records.count());
+		for (ConsumerRecord<String, String> record : records) {
+			logger.info("Recoed [{}] [{}] offser [{}]", record.key(), record.value(), record.offset());
 			// logger.debug("Received Message topic ={}, partition ={}, offset = {}, key =
 			// {}, value = {}\n", record.topic(), record.partition(), record.offset(),
 			// record.key(), record.value());
 
-			TopicMessagesMaster topicMessagesMaster = new TopicMessagesMaster();
+			/*TopicMessagesMaster topicMessagesMaster = new TopicMessagesMaster();
 			topicMessagesMaster.setMsgId(count);
 			String message = record.value();
 			topicMessagesMaster
@@ -93,7 +97,7 @@ public class KafkaConsumerService {
 			if (list.size() == 50) {
 				errorMessageMasterService.saveMessages(list);
 				list.clear();
-			}
+			}*/
 		}
 		if (!CollectionUtils.isEmpty(list)) {
 			errorMessageMasterService.saveMessages(list);
@@ -106,8 +110,9 @@ public class KafkaConsumerService {
 	 * 
 	 * @param message
 	 * @return UTER
+	 * @throws JSONException 
 	 */
-	private String getUTER(String message) {
+	private String getUTER(String message) throws JSONException {
 		JSONObject jObject = new JSONObject(message);
 		return (String) jObject.get(ConstantUtils.UTER);
 	}

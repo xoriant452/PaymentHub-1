@@ -36,13 +36,15 @@ public class TopicMasterService {
 		List<String> topicList=new ArrayList<String>();
 		try {
 			logger.debug("Enter into 'getAllTopics' method.");
-			topicMasterList = topicMasterRepository.findAll();
+			topicMasterList = new ArrayList<>();//topicMasterRepository.findAll();//coment
+			
 			for(TopicMaster tm:topicMasterList) {
 				topicList.add(tm.getTopicName());
 			}
 		} catch (Exception e) {
 			logger.error(e);
 		}
+		topicList.add("EU.PAYHUB.ERROR");
 		return topicList;
 	}
 	
