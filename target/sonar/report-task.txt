@@ -1,0 +1,6 @@
+projectKey=devops-shivam
+serverUrl=http://10.20.14.81:9000
+serverVersion=6.7.6.38781
+dashboardUrl=http://10.20.14.81:9000/dashboard/index/devops-shivam
+ceTaskId=AXLlSgl7kkZzu4AXgnU9
+ceTaskUrl=http://10.20.14.81:9000/api/ce/task?id=AXLlSgl7kkZzu4AXgnU9
