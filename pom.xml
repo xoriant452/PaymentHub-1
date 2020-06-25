@@ -21,9 +21,9 @@
 
         <!-- sonar configuration -->
 
-        <sonar.projectKey>devops-shivam</sonar.projectKey>
+        <sonar.projectKey>ashok-devopse</sonar.projectKey>
 
-        <sonar.projectName>devops-shivam description</sonar.projectName>
+        <sonar.projectName>devops-ashok description</sonar.projectName>
 
         <sonar.language>java</sonar.language>
 
