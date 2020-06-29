@@ -12,6 +12,13 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    
+		<!-- sonar configuration -->
+		<sonar.projectKey>TestDevOps</sonar.projectKey>
+		<sonar.projectName>TestDevOps description</sonar.projectName>
+		<sonar.language>java</sonar.language>
+		<sonar.host.url>http://10.20.14.81:9000</sonar.host.url>
+    
   </properties>
 
   <dependencies>
@@ -22,4 +29,19 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+  
+  <build>
+  <plugins>
+
+  <plugin>
+				<groupId>org.sonarsource.scanner.maven</groupId>
+				<artifactId>sonar-maven-plugin</artifactId>
+				<version>3.6.0.1398</version>
+			</plugin>
+  
+  </plugins>
+	</build>
+   
+  
+  
 </project>
