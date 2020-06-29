@@ -16,8 +16,8 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
-    <sonar.projectKey>test-project-swapnil</sonar.projectKey>
-	<sonar.projectName>test-project-swapnil description</sonar.projectName>
+    <sonar.projectKey>Parag_test_new</sonar.projectKey>
+	<sonar.projectName>test-project-parag description</sonar.projectName>
 	<!-- <maven.build.timestamp.format>yyyyMMddHHmmss</maven.build.timestamp.format>
 	<timestamp>${maven.build.timestamp}</timestamp>
 	<warname>test-project-swapnil</warname> -->
