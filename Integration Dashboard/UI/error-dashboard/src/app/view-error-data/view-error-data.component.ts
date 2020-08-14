@@ -26,7 +26,6 @@ export class ViewErrorDataComponent implements OnInit {
     //   apiPath = this.prepareSearchUrl(apiPath);
     // }
     this.restSerivice.viewRecords(apiPath).then((response: any) => {
-      // console.log(response)
       this.errorRecordDetails = response;
     }).catch((error: any) => {
       console.log(error)
@@ -36,7 +35,6 @@ export class ViewErrorDataComponent implements OnInit {
   downloadRecord() {
     let apiPath = `/downloadLogs`;
     this.restSerivice.downloadErrorFile(apiPath).then((response: any) => {
-      // console.log(response)
       this.errorRecordDetails = response;
       //this.viewDataOnWindow(response);
     }).catch((error: any) => {

@@ -28,7 +28,6 @@ export class NotificationService {
         this.toastr.success(message, 'Success..!!', successConfig);
     }
     showError(message) {
-        console.log("Here")
         //   this.toastr.success('Hello world!', 'Toastr fun!');
         this.toastr.error(message, 'Error', errorConfig);
     }

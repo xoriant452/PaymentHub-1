@@ -52,13 +52,11 @@ export class HomeComponent implements OnInit {
     //https://54.158.116.133:8089/getPaginatedErrorList?page=0&size=12&sortBy=lastUpdated&order=1
     //check if search functionality is activated
     apiPath = this.prepareSearchUrl(apiPath);
-    console.log(apiPath)
     this.restSerivice.getData(apiPath).subscribe((data) => {
       this.errData = data;
       let resData: any = [];
       resData = this.errData.dashboardInfo ? this.errData.dashboardInfo : [];
       this.errData.dashboardInfo = new MatTableDataSource(resData);
-      console.log(this.errData)
     }, (error) => {
       console.log(error)
     });
@@ -152,7 +150,6 @@ export class HomeComponent implements OnInit {
     //   apiPath = this.prepareSearchUrl(apiPath);
     // }
     this.restSerivice.viewRecords(apiPath).then((response: any) => {
-      // console.log(response)
       this.errorRecordDetails = response;
       let dialogRef = this.dialog.open(this.callAPIDialog);
     }).catch((error: any) => {
@@ -162,7 +159,6 @@ export class HomeComponent implements OnInit {
   downloadRecord() {
     let apiPath = `/downloadLogs`;
     this.restSerivice.downloadErrorFile(apiPath).then((response: any) => {
-      // console.log(response)
       this.errorRecordDetails = response;
       //this.viewDataOnWindow(response);
     }).catch((error: any) => {

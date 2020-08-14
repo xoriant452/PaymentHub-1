@@ -21,9 +21,10 @@
         <!-- <span class="app-name">EЯRO<i class="fa fa-binoculars ico-binacular"></i>SPECTOR</span> -->
         <app-name></app-name>
         <span class="toolbar-spacer"></span>
-        <!-- <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+        
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" (click)="logout()">
           <mat-icon>account_circle</mat-icon>
-        </button> -->
+        </button>
       </mat-toolbar>
       <router-outlet></router-outlet>
       <footer>

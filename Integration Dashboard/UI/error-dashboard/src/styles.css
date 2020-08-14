@@ -248,3 +248,9 @@ th.mat-header-cell {
 .m-r-5 {
   margin-right: 5px;
 }
+
+.error-label {
+  font-size: 12px;
+  font-style: italic;
+  color: #da4646;
+}

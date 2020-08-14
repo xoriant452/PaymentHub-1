@@ -1,3 +1,4 @@
+import { JwtInterceptor } from './http-interceptors/jwt.interceptor';
 import { ViewErrorDataComponent } from './view-error-data/view-error-data.component';
 import { ServerErrorInterceptor } from './http-interceptors/ServerErrorInterceptor';
 import { HttpRequestInterceptor } from './http-interceptors/rest-interceptor';
@@ -38,7 +39,8 @@ import { ToastrModule } from 'ngx-toastr';
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: HttpRequestInterceptor, multi: true },
-     { provide: HTTP_INTERCEPTORS, useClass: ServerErrorInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: ServerErrorInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

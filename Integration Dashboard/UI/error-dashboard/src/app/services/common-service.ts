@@ -11,7 +11,6 @@ export class CommonService {
   constructor() { }
 
   showSnackBar(display: boolean) {
-    console.log(display)
     this.snackbar.next(display);
   }
 }

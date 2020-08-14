@@ -1,3 +1,4 @@
+import { AuthService } from './services/auth.service';
 import { LoadingService } from './services/loader.service';
 import { Component } from '@angular/core';
 import { Location } from '@angular/common';
@@ -14,7 +15,7 @@ export class AppComponent {
   title = 'error-dashboard';
   typesOfShoes: string[] = ['Boots', 'Clogs', 'Loafers', 'Moccasins', 'Sneakers'];
   showNavBar: boolean = true;
-  constructor(public location: Location, public router: Router, private loadingService: LoadingService, private spinner: NgxSpinnerService) {
+  constructor(public location: Location, public router: Router, private loadingService: LoadingService, private spinner: NgxSpinnerService, private authService: AuthService) {
 
     router.events.subscribe((event: RouterEvent) => {
       if (event instanceof NavigationEnd) {
@@ -22,8 +23,8 @@ export class AppComponent {
           this.showNavBar = false;
         }
         else {
-          //this.showNavBar = true;
-          this.showNavBar = false;
+          this.showNavBar = true;
+          //this.showNavBar = false;
         }
       }
     });
@@ -44,5 +45,10 @@ export class AppComponent {
 
   navigateTo(path: string) {
 
+  }
+
+  logout() {
+    this.authService.logout();
+    this.router.navigate(['/login']);
   }
 }
