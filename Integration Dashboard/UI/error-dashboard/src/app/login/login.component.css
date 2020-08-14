@@ -1,0 +1,10 @@
+.login-form-div {
+  width: 300px;
+  padding: 10px;
+  border: 2px solid #ec3946;
+  border-radius: 3px;
+  background-color: #fafafa;
+}
+.login-page {
+  background-color: #1d3557;
+}

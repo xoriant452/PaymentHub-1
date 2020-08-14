@@ -1,0 +1,250 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~ngx-toastr/toastr";
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: #f1faee;
+  height: 100%;
+}
+table {
+  width: 100%;
+}
+.color-default {
+  color: #607799;
+}
+.ico-binacular {
+  font-size: 25px;
+  color: #ec3946;
+}
+/* .app-name:before {
+  content: "EЯROR Inspector";
+  opacity: 0.1;
+  font-size: 125px;
+  position: absolute;
+} */
+.toolbar-spacer {
+  flex: 1 1 auto;
+}
+.mat-drawer-content {
+  height: 100%;
+  /* background-color: #f1faee; */
+  /* palette no 29: https://digitalsynopsis.com/design/beautiful-color-schemes-combinations-palettes/ */
+}
+.mat-toolbar.mat-primary {
+  background: #1d3557; /* palette no 29: https://digitalsynopsis.com/design/beautiful-color-schemes-combinations-palettes/ */
+
+  /* match color with net suit app */
+  background: #607799;
+}
+tr.mat-header-row {
+  /* background-color: #a8dadc;  */
+  /* palette no 29: https://digitalsynopsis.com/design/beautiful-color-schemes-combinations-palettes/ */
+
+  /* match color with net suit app */
+  background-color: #607799;
+
+  /*background-color: #ec3946;*/ /* palette no 29: https://digitalsynopsis.com/design/beautiful-color-schemes-combinations-palettes/ */
+  /* background-image: linear-gradient(180deg, #fafafa 0%, #ededed 100%); */
+  /* background: #5dd39e; */
+  height: 40px !important;
+}
+tr.mat-footer-row,
+tr.mat-row {
+  height: 40px !important;
+}
+.page-content {
+  margin: 15px;
+}
+.div-table > table {
+  /* border-right: 1px solid #a8dadc;
+  border-top: 1px solid #a8dadc;
+  border-left: 1px solid #a8dadc; */
+
+  /* match color with net suit app */
+  border-right: 1px solid #607799;
+  border-top: 1px solid #607799;
+  border-left: 1px solid #607799;
+}
+.height-100 {
+  height: 100%;
+}
+
+.color-p0 {
+  color: #1d3557;
+}
+
+.color-p1 {
+  color: #ec3946;
+}
+
+.mat-fab.mat-primary,
+.mat-flat-button.mat-primary,
+.mat-mini-fab.mat-primary,
+.mat-raised-button.mat-primary {
+  /* background-color: #1d3557 !important; */
+  /* match color with net suit app */
+  background-color: #607799;
+}
+.mat-fab.mat-accent[disabled],
+.mat-fab.mat-primary[disabled],
+.mat-fab.mat-warn[disabled],
+.mat-fab[disabled][disabled],
+.mat-flat-button.mat-accent[disabled],
+.mat-flat-button.mat-primary[disabled],
+.mat-flat-button.mat-warn[disabled],
+.mat-flat-button[disabled][disabled],
+.mat-mini-fab.mat-accent[disabled],
+.mat-mini-fab.mat-primary[disabled],
+.mat-mini-fab.mat-warn[disabled],
+.mat-mini-fab[disabled][disabled],
+.mat-raised-button.mat-accent[disabled],
+.mat-raised-button.mat-primary[disabled],
+.mat-raised-button.mat-warn[disabled],
+.mat-raised-button[disabled][disabled] {
+  background-color: rgb(236, 231, 231) !important;
+  color: rgba(0, 0, 0, 0.26);
+}
+/* .mat-form-field-appearance-outline .mat-form-field-infix {
+  padding: 10px;
+}
+.mat-form-field-infix {
+  padding: 0;
+  border-top: 0;
+}
+
+.mat-form-field-label-wrapper {
+  top: -0.84375em;
+  padding-top: 0.84375em;
+} */
+.toast-container .ngx-toastr {
+  font-size: 12px !important;
+}
+
+th.mat-header-cell {
+  color: #fff;
+  font-size: 15px;
+}
+
+.status-success {
+  color: #28a745;
+}
+.status-fail {
+  color: #dc3545;
+}
+
+.status-default {
+  color: #007bff;
+}
+
+.label-default {
+  margin-bottom: 0px;
+  font-size: 12px;
+  font-weight: 500;
+}
+.search-panel .mat-expansion-panel-body {
+  border: 1px solid #607799;
+  /* match color with net suit app */
+
+  padding: 5px 10px 0px 10px;
+  border-radius: 4px;
+  /* margin-bottom: 10px; */
+}
+.search-panel .search-btn {
+  margin-top: 5%;
+}
+.search-panel {
+  margin-bottom: 10px;
+}
+.action-menu {
+  margin-bottom: 10px;
+}
+.paginator {
+  border-right: 1px solid #607799;
+  border-bottom: 1px solid #607799;
+  border-left: 1px solid #607799;
+
+  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+.btn-primary,
+.btn-sm {
+  color: #fff;
+  /* background-color: #1d3557;
+  border-color: #1d3557; */
+  /* match color with net suit app */
+  background-color: #607799;
+  /* match color with net suit app */
+  border-color: #607799;
+}
+
+.btn-primary:hover,
+.btn-sm:hover {
+  color: #fff;
+  /* match color with net suit app */
+  background-color: #243858;
+  /* match color with net suit app */
+  border-color: #243858;
+}
+
+.btn-primary:not(:disabled):not(.disabled):active,
+.btn-primary:not(:disabled):not(.disabled).active,
+.show > .btn-primary.dropdown-toggle {
+  background-color: #607799 !important;
+  border-color: #607799 !important;
+}
+
+.btn-primary:focus,
+.btn-sm:focus {
+  background-color: #243858 !important;
+  border-color: #243858 !important;
+}
+.loading-text > p {
+  font-size: 15px !important;
+}
+
+.no-data-found-div {
+  height: 45px;
+  background-color: #fafafa;
+  border-right: 1px solid #607799;
+  border-left: 1px solid #607799;
+  text-align: center;
+  padding: 0.5rem !important;
+}
+
+.dropdown-item.active,
+.dropdown-item:active {
+  background-color: #607799;
+}
+
+.action-menu .dropdown-item {
+  font-size: 14px;
+}
+
+.border-btm {
+  border-bottom: 1px solid #607799;
+}
+
+.view-error-panel {
+  font-size: 12px;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.display-file-name {
+  font-size: 14px;
+}
+.mat-dialog-title {
+  margin: 0px !important;
+}
+
+.m-r-5 {
+  margin-right: 5px;
+}
