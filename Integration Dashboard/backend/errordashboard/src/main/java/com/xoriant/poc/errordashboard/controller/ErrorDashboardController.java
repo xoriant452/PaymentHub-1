@@ -26,8 +26,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
@@ -39,6 +37,7 @@ import com.xoriant.poc.errordashboard.beans.PaginatedErrorList;
 import com.xoriant.poc.errordashboard.dao.DashboardInfo;
 import com.xoriant.poc.errordashboard.exception.ErrorNotFoundException;
 import com.xoriant.poc.errordashboard.repository.DashboardInfoRepository;
+import com.xoriant.poc.errordashboard.repository.UserRepository;
 import com.xoriant.poc.errordashboard.service.CSVService;
 import com.xoriant.poc.errordashboard.service.FileStorageService;
 import com.xoriant.poc.errordashboard.service.JwtUserDetailsService;
@@ -65,6 +64,9 @@ public class ErrorDashboardController {
 	private JwtTokenUtil jwtTokenUtil;
 	@Autowired
 	private JwtUserDetailsService userDetailsService;
+	
+	@Autowired
+	private UserRepository userRepository;
 
 	@Value("${file.upload-dir}")
 	String uploadDir;
@@ -73,6 +75,11 @@ public class ErrorDashboardController {
 	public List<DashboardInfo> getErrorList() {
 		List<DashboardInfo> errorList = (List<DashboardInfo>) repository.findAll();
 		return errorList;
+	}
+	
+	@GetMapping("/checkUser")
+	public boolean checkuser(@RequestParam(name="username") String userName) {
+		return (null!=userRepository.findByUsername(userName));
 	}
 
 	@CrossOrigin
@@ -85,10 +92,11 @@ public class ErrorDashboardController {
 			@RequestParam(name = "transactionName", required = false) String transactionName,
 			@RequestParam(name = "fromDate", required = false) String fromDate,
 			@RequestParam(name = "toDate", required = false) String toDate) {
-
+		
+		logger.info("RECEIVED REQUEST");
 		PaginatedErrorList pErrorList = dashboardService.getAggregatedFilteredErrorList(repository, page, size, colName,
 				order, applicationName, transactionName, fromDate, toDate);
-
+		logger.info("SENDING RESPONSE");
 		return pErrorList;
 	}
 
