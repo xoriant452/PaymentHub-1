@@ -23,8 +23,8 @@ export class AppComponent {
           this.showNavBar = false;
         }
         else {
-          this.showNavBar = true;
-          //this.showNavBar = false;
+          //this.showNavBar = true;
+          this.showNavBar = false;
         }
       }
     });
