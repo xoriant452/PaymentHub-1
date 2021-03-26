@@ -1,0 +1,9 @@
+
+- hosts: webservers
+  become:True
+  Tasks:
+    - name: Install packages
+      yum:
+        name: "httpd"
+        state: "present"
+    - name: Strat Linux Server
