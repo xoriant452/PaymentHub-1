@@ -1,6 +1,6 @@
 ---
 - name: update web servers
-  hosts: webservers
+  hosts: web servers
   remote_user: root
 
   tasks:
@@ -13,16 +13,3 @@
       src: /srv/httpd.j2
       dest: /etc/httpd.conf
 
-- name: update db servers
-  hosts: databases
-  remote_user: root
-
-  tasks:
-  - name: ensure postgresql is at the latest version
-    yum:
-      name: postgresql
-      state: latest
-  - name: ensure that postgresql is started
-    service:
-      name: postgresql
-      state: started
